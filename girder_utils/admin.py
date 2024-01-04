@@ -6,8 +6,8 @@ from typing import TYPE_CHECKING, Generic, TypeVar
 from django.contrib import admin
 from django.db.models import Model
 
-_ChildModelT = TypeVar('_ChildModelT', bound=Model)
-_ParentModelT = TypeVar('_ParentModelT', bound=Model)
+_ChildModelT = TypeVar("_ChildModelT", bound=Model)
+_ParentModelT = TypeVar("_ParentModelT", bound=Model)
 
 # https://mypy.readthedocs.io/en/latest/runtime_troubles.html#using-classes-that-are-generic-in-stubs-but-not-at-runtime
 if TYPE_CHECKING:
