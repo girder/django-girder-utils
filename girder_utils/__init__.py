@@ -1,7 +1,5 @@
-from importlib.metadata import PackageNotFoundError, version
+from __future__ import annotations
 
-try:
-    __version__ = version('django-girder-utils')
-except PackageNotFoundError:
-    # package is not installed
-    pass
+from importlib.metadata import version
+
+__version__ = version(__package__)
