@@ -1,14 +1,18 @@
-from collections.abc import Mapping
+from __future__ import annotations
+
 import json
-from typing import Any, TypeVar
+from typing import TYPE_CHECKING, Any, TypeVar
 
 from django import template
+
+if TYPE_CHECKING:
+    from collections.abc import Mapping
 
 register = template.Library()
 
 
-_KT = TypeVar('_KT')
-_VT_co = TypeVar('_VT_co', covariant=True)
+_KT = TypeVar("_KT")
+_VT_co = TypeVar("_VT_co", covariant=True)
 
 
 @register.filter

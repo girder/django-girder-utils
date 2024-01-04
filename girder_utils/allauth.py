@@ -1,7 +1,13 @@
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
 from django import forms
-from django.contrib.auth.models import AbstractUser
-from django.http import HttpRequest
 from django.utils.translation import gettext_lazy as _
+
+if TYPE_CHECKING:
+    from django.contrib.auth.models import AbstractUser
+    from django.http import HttpRequest
 
 
 # Django-Allauth further inherits from this form, and adds the typical "username", "email", etc.
@@ -16,28 +22,28 @@ class FullNameSignupForm(forms.Form):
 
     first_name = forms.CharField(
         max_length=150,
-        label=_('First name'),
+        label=_("First name"),
         widget=forms.TextInput(
-            attrs={'placeholder': _('First name'), 'autocomplete': 'given-name'}
+            attrs={"placeholder": _("First name"), "autocomplete": "given-name"}
         ),
     )
     last_name = forms.CharField(
         max_length=150,
-        label=_('Last name'),
+        label=_("Last name"),
         widget=forms.TextInput(
-            attrs={'placeholder': _('Last name'), 'auto complete': 'family-name'}
+            attrs={"placeholder": _("Last name"), "auto complete": "family-name"}
         ),
     )
 
     field_order = [
         # Any undefined fields in this list are just ignored
-        'first_name',
-        'last_name',
-        'email',
-        'email2',
-        'username',
-        'password1',
-        'password2',
+        "first_name",
+        "last_name",
+        "email",
+        "email2",
+        "username",
+        "password1",
+        "password2",
     ]
 
     def signup(self, request: HttpRequest, user: AbstractUser) -> None:
